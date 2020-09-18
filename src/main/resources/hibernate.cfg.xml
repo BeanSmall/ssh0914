@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <!--数据库连接 移入到spring数据源配置中-->
+        <!---->
+        <property name="hbm2ddl.auto">create</property>
+
+        <!--每个数据库都有其对应的Dialect以匹配其平台特性 -->
+        <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
+        <!--指定当前session范围和上下文 -->
+
+
+        <!--web.xml中以过滤器的形式出现-->
+        <!--<property name="current_session_context_class">thread</property>-->
+        <!--是否将运行期生成的SQL输出到日志以供调试 -->
+        <property name="show_sql">true</property>
+        <!--是否格式化SQL -->
+        <property name="format_sql">true</property>
+
+
+        <!--移入到spring配置中-->
+        <!--<mapping class="com.bdqn.zhang.pojo.Dept"/>
+        <mapping class="com.bdqn.zhang.pojo.Emp"/>-->
+
+    </session-factory>
+</hibernate-configuration>
