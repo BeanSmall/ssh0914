@@ -6,19 +6,21 @@ import java.util.HashSet;
 @Entity
 @Table(name = "dept")
 public class Dept {
-    private Integer id;
+    private Long deptno;
     private String dname;
     private Collection<Emp> emps = new HashSet<>();
 
+
+
     @Id
-    @Column(name = "id", table = "dept")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer getId() {
-        return id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_dept")
+    @SequenceGenerator(name = "seq_dept",sequenceName = "seq_dept",allocationSize = 1,initialValue = 100)
+    public Long getDeptno() {
+        return deptno;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setDeptno(Long deptno) {
+        this.deptno = deptno;
     }
 
     @Basic
@@ -29,26 +31,6 @@ public class Dept {
 
     public void setDname(String dname) {
         this.dname = dname;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Dept dept = (Dept) o;
-
-        if (id != null ? !id.equals(dept.id) : dept.id != null) return false;
-        if (dname != null ? !dname.equals(dept.dname) : dept.dname != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (dname != null ? dname.hashCode() : 0);
-        return result;
     }
 
     @OneToMany(mappedBy = "dept",cascade = CascadeType.ALL)

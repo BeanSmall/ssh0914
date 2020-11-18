@@ -15,6 +15,6 @@ public class DeptDaoImpl extends BaseDaoImpl<Dept> implements DeptDao {
 
     @Override
     public Dept getDeptById() {
-        return findById(1);
+        return findById(1L);
     }
 }

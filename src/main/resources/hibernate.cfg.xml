@@ -7,10 +7,10 @@
 
         <!--数据库连接 移入到spring数据源配置中-->
         <!---->
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">update</property>
 
         <!--每个数据库都有其对应的Dialect以匹配其平台特性 -->
-        <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
+        <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
         <!--指定当前session范围和上下文 -->
 
 
